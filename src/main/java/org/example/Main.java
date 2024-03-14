@@ -1,17 +1,39 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import org.example.config.AppConfig;
+import org.example.model.Car;
+import org.example.model.Client;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+@SpringBootApplication
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+//        SpringApplication.run(Main.class, args);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+
+        Car car = (Car)context.getBean("Toyota");
+        Car car2 = (Car)context.getBean("Ferrari");
+
+        Client firstclient = (Client)context.getBean("Ramazan");
+        Client secondClient = (Client)context.getBean("Dimash");
+
+
+        firstclient.addToBasket(car);
+        firstclient.addToBasket(car2);
+        secondClient.addToBasket(car);
+
+        System.out.println(firstclient);
+
+        firstclient.getBasket();
+
+
+
+
+
+
+
+
     }
 }
