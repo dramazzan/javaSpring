@@ -17,11 +17,11 @@ public class AppConfig {
 
     @Bean(value = "Toyota")
     @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
-    Car createToyota(){return new Car("Toyota", 2019 , 30000);}
+    Car createToyota(){return new Car("Toyota", 2019 , 30000 , 3);}
 
     @Bean(value = "Ferrari")
     @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
-    Car createFerrari(){return new Car("Ferrari" , 2020 , 300000);}
+    Car createFerrari(){return new Car("Ferrari" , 2020 , 300000 ,0);}
 
     @Bean(value = "Ramazan")
     @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)

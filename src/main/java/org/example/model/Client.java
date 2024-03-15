@@ -20,6 +20,15 @@ public class Client {
         System.out.println("'" + name + "' you have successfully added a '" + car.brand + "' to your cart");
     }
 
+    public void buyCar(Car car){
+        if(car.amount > 0){
+            System.out.println("'"+name+"' you are successfully bought '"+car.brand+"'");
+            car.amount--;
+        }else{
+            System.out.println("the '"+car.brand+"' is over");
+        }
+    }
+
 
     public void getBasket() {
         System.out.println(name + "-" + basket);
