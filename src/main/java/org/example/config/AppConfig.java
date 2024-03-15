@@ -31,4 +31,10 @@ public class AppConfig {
     @Bean(value = "Dimash")
     @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
     Client createDimash(){return new Client("Dimash", 18 , basket());}
+
+    @Bean(value = "Adam")
+    @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
+    Client createAdam(){return new Client("Adam" , 20 , basket());}
+
+
 }

@@ -2,6 +2,8 @@ package org.example.model;
 
 public class Car {
 
+    public static long nextId = 1;
+    private long carId;
     String brand;
     int year;
     int price;
@@ -11,6 +13,7 @@ public class Car {
 
 
     public Car(String brand , int year , int price , int amount){
+        this.carId = nextId++;
         this.brand = brand;
         this.year = year;
         this.price = price;
@@ -47,6 +50,10 @@ public class Car {
 
     public void setAmount(int amount) {
         this.amount = amount;
+    }
+
+    public long getCarId() {
+        return carId;
     }
 
     @Override

@@ -5,11 +5,14 @@ import java.util.List;
 
 public class Client {
 
+    public static long nextId=1;
+    private long clientId;
     private String name;
     private int age;
     private Basket basket;
 
     public Client(String name, int age, Basket basket) {
+        this.clientId=nextId++;
         this.name = name;
         this.age = age;
         this.basket = basket;
@@ -36,6 +39,10 @@ public class Client {
 
     public String getName() {
         return name;
+    }
+
+    public long getId(){
+        return clientId;
     }
 
     @Override
