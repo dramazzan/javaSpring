@@ -1,23 +1,40 @@
 package org.example.model;
 
+import jakarta.persistence.*;
+
+@Table(name = "car_table")
+@Entity
 public class Car {
 
-    public static long nextId = 1;
+
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
     private long carId;
+
+    @Column(name = "brand")
     String brand;
     int year;
     int price;
     int amount;
 
-    Car(){}
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private Client client;
+
+   public Car(){}
 
 
     public Car(String brand , int year , int price , int amount){
-        this.carId = nextId++;
         this.brand = brand;
         this.year = year;
         this.price = price;
         this.amount = amount;
+    }
+
+
+    public void setCarId(long carId) {
+        this.carId = carId;
     }
 
     public String getBrand() {

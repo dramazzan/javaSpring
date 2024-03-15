@@ -1,34 +1,45 @@
 package org.example.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import jakarta.persistence.*;
 
+
+@Entity
+@Table(name = "client_table")
 public class Client {
 
-    public static long nextId=1;
-    private long clientId;
-    private String name;
-    private int age;
+    @OneToOne(mappedBy = "basket")
     private Basket basket;
 
-    public Client(String name, int age, Basket basket) {
-        this.clientId=nextId++;
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
+    private long clientId;
+    @Column(name = "client_name")
+    private String name;
+    private int age;
+
+    public Client() {
+
+    }
+
+    public Client(String name, int age) {
         this.name = name;
         this.age = age;
         this.basket = basket;
     }
+
 
     public void addToBasket(Car car) {
         basket.addCar(car);
         System.out.println("'" + name + "' you have successfully added a '" + car.brand + "' to your cart");
     }
 
-    public void buyCar(Car car){
-        if(car.amount > 0){
-            System.out.println("'"+name+"' you are successfully bought '"+car.brand+"'");
+    public void buyCar(Car car) {
+        if (car.amount > 0) {
+            System.out.println("'" + name + "' you are successfully bought '" + car.brand + "'");
             car.amount--;
-        }else{
-            System.out.println("the '"+car.brand+"' is over");
+        } else {
+            System.out.println("the '" + car.brand + "' is over");
         }
     }
 
@@ -41,7 +52,7 @@ public class Client {
         return name;
     }
 
-    public long getId(){
+    public long getId() {
         return clientId;
     }
 

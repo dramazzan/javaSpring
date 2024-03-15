@@ -2,6 +2,8 @@ package org.example.controller;
 
 import org.example.model.Car;
 import org.example.model.Client;
+import org.example.repository.CarRepository;
+import org.example.service.CarService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -11,7 +13,12 @@ import java.util.List;
 @RequestMapping("/home")
 public class HomeController {
 
-    List<Car> carList = new ArrayList<>();
+    private final CarService carService;
+
+    public HomeController(CarService carService) {
+        this.carService = carService;
+    }
+
 
     @GetMapping
     public String getHome(){
@@ -25,13 +32,13 @@ public class HomeController {
 
     @PostMapping("/car")
     public String addCar(@RequestBody Car car){
-      return carList.add(car) ? "Added" : "Not Added";
-
+        return carService.addCar(car);
     }
 
     @GetMapping("/car")
     public List<Car> getAllCars(){
-        return carList;
+        return carService.getAllCar();
     }
+
 
 }

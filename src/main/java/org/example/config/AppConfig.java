@@ -25,16 +25,16 @@ public class AppConfig {
 
     @Bean(value = "Ramazan")
     @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
-    Client createRamazan(){return new Client("Ramazan" , 19 , basket());}
+    Client createRamazan(){return new Client("Ramazan" , 19 );}
 
 
     @Bean(value = "Dimash")
     @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
-    Client createDimash(){return new Client("Dimash", 18 , basket());}
+    Client createDimash(){return new Client("Dimash", 18 );}
 
     @Bean(value = "Adam")
     @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
-    Client createAdam(){return new Client("Adam" , 20 , basket());}
+    Client createAdam(){return new Client("Adam" , 20 );}
 
 
 }

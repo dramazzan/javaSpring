@@ -11,18 +11,18 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class Main {
     public static void main(String[] args) {
 
-//        SpringApplication.run(Main.class, args);
+        SpringApplication.run(Main.class, args);
 
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+//        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 
-        Car car = (Car)context.getBean("Toyota");
-        Car car2 = (Car)context.getBean("Ferrari");
-
-        Client firstclient = (Client)context.getBean("Ramazan");
-        Client secondClient = (Client)context.getBean("Dimash");
-        Client thirdClient = (Client)context.getBean("Adam");
-
-
+//        Car car = (Car)context.getBean("Toyota");
+//        Car car2 = (Car)context.getBean("Ferrari");
+//
+//        Client firstclient = (Client)context.getBean("Ramazan");
+//        Client secondClient = (Client)context.getBean("Dimash");
+//        Client thirdClient = (Client)context.getBean("Adam");
+//
+//
 
 
 //
